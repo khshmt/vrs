@@ -21,6 +21,8 @@ if ("${CMAKE_PREFIX_PATH}" STREQUAL "" AND EXISTS "$ENV{QT_DIR}")
   set(CMAKE_PREFIX_PATH "$ENV{QT_DIR}")
 endif()
 
+add_definitions(-DFMT_HEADER_ONLY)
+
 # When building within Meta's source tree, a number of OSS-only source files live in an
 # "oss/" sub-folder next to the main vrs/ folder that contains vrs' main source code.
 if ("${VRS_SOURCE_DIR}" STREQUAL "")

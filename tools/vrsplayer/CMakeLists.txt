@@ -19,6 +19,7 @@ if (QT_FOUND)
 
   # We only need PortAudio for vrsplayer, so we only search for if Qt was found
   find_package(PortAudio REQUIRED)
+  find_package(ALSA REQUIRED)
 
   set(CMAKE_AUTOMOC ON)
 
@@ -27,6 +28,7 @@ if (QT_FOUND)
   target_include_directories(vrsplayer
     PRIVATE
       ${CMAKE_CURRENT_SOURCE_DIR}
+      ${ALSA_INCLUDE_DIRS}
   )
   target_link_libraries(vrsplayer
     PRIVATE
@@ -39,6 +41,7 @@ if (QT_FOUND)
       Qt${QT_VERSION_MAJOR}::Gui
       Qt${QT_VERSION_MAJOR}::Widgets
       vrs_logging
+      ${ALSA_LIBRARIES}
   )
 
   install(TARGETS vrsplayer EXPORT VRSLibTargets
